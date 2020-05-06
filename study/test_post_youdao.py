@@ -19,6 +19,7 @@ class PostYoudaoTest(unittest.TestCase):
         self.assertEqual('15887448534084',get_salt())
 
     def test_get_sign(self):
+        get_sign=mock.Mock(return_value="2d92614b6687aa594237b0b8dd565f5c")
         self.assertEqual('2d92614b6687aa594237b0b8dd565f5c',get_sign())
 
 if __name__ == '__main__':
