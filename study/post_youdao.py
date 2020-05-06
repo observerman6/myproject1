@@ -1,10 +1,18 @@
+import random
 import requests
+import time
 
 url="http://fanyi.youdao.com/translate_o?smartresult=dict&smartresult=rule"
-
+content="我和你"
 
 def get_salt():
-    return '15887448534084'
+    s=str(random.randint(0,10))
+    t=get_ts()
+   # print("random = ",s)
+   # print("ts= ",t)
+  #  print("salt=",t+s)
+    return t+s
+  #  return '15887448534084'
 
 
 def get_sign():
@@ -12,21 +20,22 @@ def get_sign():
 
 
 def get_ts():
-    import time
     t = time.time()
     ts = str(int(round(t * 1000)))
     return ts
            #"1588751821873"
 
+
+
 form_data={
-    'i': '我和你都是中国',
+    'i': 'get_content()',
     'from': 'AUTO',
     'to': 'AUTO',
     'smartresult': 'dict',
     'client': 'fanyideskweb',
-    'salt': get_salt(),
-    'sign': get_sign(),
-    'ts': get_ts(),
+    'salt': 'get_salt()',
+    'sign': 'get_sign()',
+    'ts': 'get_ts()',
     'bv': '6b71bda0785160f59caa738e5cbcdf96',
     'doctype': 'json',
     'version': '2.1',
